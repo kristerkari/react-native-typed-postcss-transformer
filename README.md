@@ -54,7 +54,8 @@ If you are using [Expo](https://expo.io/), you also need to add this to `app.jso
 {
   "expo": {
     "packagerOpts": {
-      "config": "metro.config.js"
+      "config": "metro.config.js",
+      "sourceExts": ["ts", "tsx", "css", "pcss"]
     }
   }
 }
@@ -72,7 +73,7 @@ module.exports = {
     return require.resolve("./postcss-transformer.js");
   },
   getSourceExts() {
-    return ["js", "jsx", "css", "pcss"]; // <-- Add other extensions if needed.
+    return ["ts", "tsx", "css", "pcss"]; // <-- Add other extensions if needed.
   }
 };
 ```
@@ -87,7 +88,7 @@ If you are using [Expo](https://expo.io/), instead of adding the `rn-cli.config.
 {
   "expo": {
     "packagerOpts": {
-      "sourceExts": ["js", "jsx", "css", "pcss"],
+      "sourceExts": ["ts", "tsx", "css", "pcss"],
       "transformer": "./postcss-transformer.js"
     }
   }
