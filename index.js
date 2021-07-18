@@ -1,5 +1,5 @@
 var semverMinor = require("semver/functions/minor");
-var DtsCreator = require("typed-css-modules").default;
+var DtsCreator = require("typed-css-modules");
 var css2rn = require("css-to-react-native-transform").default;
 var postcss = require("postcss");
 var postcssrc = require("postcss-load-config");
