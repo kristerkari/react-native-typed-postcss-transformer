@@ -1,6 +1,6 @@
 {
   "name": "react-native-typed-postcss-transformer",
-  "version": "0.20.8",
+  "version": "0.20.9",
   "description": "PostCSS transformer with Typescript support for React Native",
   "main": "index.js",
   "repository": "https://github.com/kristerkari/react-native-typed-postcss-transformer",
