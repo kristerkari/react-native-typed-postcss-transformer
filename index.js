@@ -32,20 +32,20 @@ if (reactNativeMinorVersion >= 59) {
 
 function isPlatformSpecific(filename) {
   var platformSpecific = [".native.", ".ios.", ".android."];
-  return platformSpecific.some(name => filename.includes(name));
+  return platformSpecific.some((name) => filename.includes(name));
 }
 
-module.exports.transform = function(src, filename, options) {
+module.exports.transform = function (src, filename, options) {
   if (typeof src === "object") {
     // handle RN >= 0.46
     ({ src, filename, options } = src);
   }
 
   var ctx = { parser: false, map: "inline" };
-  return postcssrc(ctx).then(config => {
+  return postcssrc(ctx).then((config) => {
     return postcss(config.plugins)
       .process(src, config.options)
-      .then(result => {
+      .then((result) => {
         var cssObject = css2rn(result.css, { parseMediaQueries: true });
 
         if (isPlatformSpecific(filename)) {
@@ -56,7 +56,7 @@ module.exports.transform = function(src, filename, options) {
           });
         }
 
-        return creator.create(filename, result.css).then(content => {
+        return creator.create(filename, result.css).then((content) => {
           return content.writeFile().then(() => {
             return upstreamTransformer.transform({
               src: "module.exports = " + JSON.stringify(cssObject),
