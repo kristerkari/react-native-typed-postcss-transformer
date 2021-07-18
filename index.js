@@ -4,7 +4,7 @@ var css2rn = require("css-to-react-native-transform").default;
 var postcss = require("postcss");
 var postcssrc = require("postcss-load-config");
 
-var creator = new DtsCreator({ namedExports: true });
+var creator = new DtsCreator();
 var upstreamTransformer = null;
 
 var reactNativeVersionString = require("react-native/package.json").version;
